@@ -10,11 +10,15 @@ export const Report = () => {
   }, [])
 
 
+  const datos = products;
+
+
   return (
     <section id='report'>
       <div className='report-container'>
         <h1>Unidades en inventario</h1>
-        <Chart></Chart>
+        <Chart
+          data={datos} />
       </div>
     </section>
   );
