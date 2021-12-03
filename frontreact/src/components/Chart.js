@@ -27,6 +27,25 @@ export const Chart = ({ width = 600, height = 600, data }) => {
       .range([0, iwidth])
       .padding(0.1);
 
+
+    const bars = g.selectAll("rect").data(data);
+
+    bars.enter().append("rect")
+      .attr("class", "bar")
+      .style("fill", "steelblue")
+      .attr("x", d => x(d.name))
+      .attr("y", d => y(d.age))
+      .attr("height", d => iheight - y(d.age))
+      .attr("width", x.bandwidth())
+
+    g.append("g")
+      .classed("x--axis", true)
+      .call(d3.axisBottom(x))
+      .attr("transform", `translate(0, ${iheight})`);
+
+    g.append("g")
+      .classed("y--axis", true)
+      .call(d3.axisLeft(y));
     // Continue with implementation. Don't forget the tooltip
   });
 
