@@ -34,8 +34,8 @@ export const Chart = ({ width = 600, height = 600, data }) => {
       .attr("class", "bar")
       .style("fill", "steelblue")
       .attr("x", d => x(d.name))
-      .attr("y", d => y(d.age))
-      .attr("height", d => iheight - y(d.age))
+      .attr("y", d => y(d.stock))
+      .attr("height", d => iheight - y(d.stock))
       .attr("width", x.bandwidth())
 
     g.append("g")

@@ -7,8 +7,19 @@ import React from 'react';
  */
 export const Card = (props) => {
   const { name, picture, price, isActive } = props;
+
+  var activo
+
+  if (isActive === "false") {
+    activo = "inactive"
+  } else {
+    activo = ""
+  }
+
+
   return (
-    <div>
+    <div className={`card ${activo}`}>
+
       <div className='card-header'>
         <p className='card-title'>{name}</p>
         <span className='material-icons card-favorite'>favorite_border</span>
@@ -17,6 +28,7 @@ export const Card = (props) => {
       <div className='card-bottom'>
         <p className='price'>$ {price}</p>
       </div>
+
     </div>
   );
 };
